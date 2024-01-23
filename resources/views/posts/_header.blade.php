@@ -12,7 +12,6 @@
 
             <x-category-dropdown-component/>
 
-
         </div>
 
         <!-- Other Filters -->
@@ -47,5 +46,6 @@
                     class="bg-transparent placeholder-black font-semibold text-sm">
             </form>
         </div>
+
     </div>
 </header>

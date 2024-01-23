@@ -11,17 +11,18 @@ class PostController extends Controller
     {
 //    dd(request('search'));
 
-        return view('posts',[
-            'posts'=>Post::latest()->filter(request(['search']))->get(),
+        return view('posts.index',[
+            'posts'=>Post::latest()->filter(request(['search','category']))->get(),
+
         ]);
 
     }
 
 
 
-    public function show(Post $post)
+    public function show(Post $post): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
-        return view("post",[
+        return view("posts.show",[
             'posts'=>$post,
         ]);
 

@@ -39,10 +39,11 @@ class Post extends Model
 //        $query->when($filters['category'] ?? false, fn($query,$category) =>
 //            $query->whereExits(fn($query)=>
 //                $query->from('categories')
-//                ->whereColumn('categories.id','post.category_id')
+//                ->whereColumn('categories.id','posts.category_id')
 //                -> where('category.slug',$category)
 //            )
 //        );
+
 
         $query->when($filters['category'] ?? false,
             function ($query,$category){
@@ -50,6 +51,7 @@ class Post extends Model
             $query-> where('categories.slug',$category)
             );
         });
+
 
 
     }

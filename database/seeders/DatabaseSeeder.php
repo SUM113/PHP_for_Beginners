@@ -56,8 +56,8 @@ class DatabaseSeeder extends Seeder
 //             'user_id'=>$user->first()->id,
 //             'slug'=>'workpost',
 //             'title'=>'Work Post',
-//             'excerpt'=>'work post exceprt',
-//             'body'=>'this is my work post',
+//             'excerpt'=>'work posts exceprt',
+//             'body'=>'this is my work posts',
 //
 //             ]);
 //         Post::create([
@@ -65,8 +65,8 @@ class DatabaseSeeder extends Seeder
 //             'user_id'=>$user->find(1)->id,
 //             'slug'=>'hobbypost',
 //             'title'=>'Hobby Post',
-//             'excerpt'=>'hobby post exceprt',
-//             'body'=>'this is my hobby post',
+//             'excerpt'=>'hobby posts exceprt',
+//             'body'=>'this is my hobby posts',
 //
 //             ]);
 //         Post::create([
@@ -74,8 +74,8 @@ class DatabaseSeeder extends Seeder
 //             'user_id'=>$user->find(2)->id,
 //             'slug'=>'familypost',
 //             'title'=>'Family Post',
-//             'excerpt'=>'family post exceprt',
-//             'body'=>'this is my family post',
+//             'excerpt'=>'family posts exceprt',
+//             'body'=>'this is my family posts',
 //
 //             ]);
     }

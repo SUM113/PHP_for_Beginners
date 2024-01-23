@@ -1,13 +1,13 @@
 <x-layout>
 
-    @include('_post-header')
+    @include('posts._header')
 
     <main class="max-w-6xl mx-auto mt-6 lg:mt-20 space-y-6">
 
         @if($posts->count())
             <x-post-grid :posts="$posts"/>
         @else
-        <p class="text-center">No post For Now, comeback Later.</p>
+            <p class="text-center">No post For Now, comeback Later.</p>
         @endif
 
 
@@ -17,18 +17,18 @@
 </x-layout>
 {{--@section("content")--}}
 
-{{--    @foreach ($posts as $post)--}}
+{{--    @foreach ($posts as $posts)--}}
 
 {{--        <article>--}}
 
 {{--            <h1>--}}
-{{--                <a href="/posts/{{$post->slug}}"> {{$post->title}} </a>--}}
+{{--                <a href="/posts/{{$posts->slug}}"> {{$posts->title}} </a>--}}
 {{--            </h1>--}}
-{{--            <a href="/category/{{$post->category->slug}}">--}}
-{{--                <h5>{{ ($post->category->name)}}</h5>--}}
+{{--            <a href="/category/{{$posts->category->slug}}">--}}
+{{--                <h5>{{ ($posts->category->name)}}</h5>--}}
 {{--            </a>--}}
 {{--            <div>--}}
-{{--                {{ $post->excerpt}}--}}
+{{--                {{ $posts->excerpt}}--}}
 {{--                <hr>--}}
 {{--            </div>--}}
 {{--        </article>--}}
