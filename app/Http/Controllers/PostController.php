@@ -7,7 +7,7 @@ use App\Models\Post;
 
 class PostController extends Controller
 {
-    public function index()
+    public function index(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
 //    dd(request('search'));
 
@@ -21,7 +21,7 @@ class PostController extends Controller
 
 
 
-    public function show(Post $post)
+    public function show(Post $post): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
         return view("post",[
             'posts'=>$post,
