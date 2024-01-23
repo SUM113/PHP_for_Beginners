@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
 use App\Models\Post;
 
 class PostController extends Controller
@@ -13,8 +12,7 @@ class PostController extends Controller
 
         return view('posts',[
             'posts'=>Post::latest()->with('category')->filter(request(['search','category']))->get(),
-            'category_selected'=> Category::where('slug',request('category'))->first(),
-            'categories'=> Category::all()
+
         ]);
 
     }
@@ -25,7 +23,6 @@ class PostController extends Controller
     {
         return view("post",[
             'posts'=>$post,
-            'categories'=> Category::all()
         ]);
 
     }

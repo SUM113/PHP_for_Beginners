@@ -4,36 +4,11 @@
     </h1>
 
 
-
-
     <div class="space-y-2 lg:space-y-0 lg:space-x-4 mt-4">
         <!--  Category -->
-        <div class="relative flex lg:inline-flex items-center bg-gray-100 rounded-xl">
+        <div class="relative lg:inline-flex bg-gray-100 rounded-xl">
 
-            <x-dropdown>
-
-                <x-slot name="trigger">
-                    <button @click= "show = !show"  class="py-2 pl-3 pr-9 text-sm font-semibold w-32 text-left inline-flex">
-                        {{isset($category_selected) ? ucwords($category_selected->name) : 'Categories'}}
-
-                        <x-icon name="downArrow" class="absolute pointer-events-none text-bold"/>
-
-                    </button>
-                </x-slot>
-{{--                {{dd(request()->routeIs('home') ?? false)}}--}}
-                <x-dropdownItem href="/" active=" request()->routeIs('home')??false">All</x-dropdownItem>
-                @foreach($categories as $category)
-                    <x-dropdownItem href="/?category={{$category->slug}}"
-                                    :active="isset($category_selected) && $category_selected->is($category)"
-                    >{{$category->name. "\n"}}
-
-                        @endforeach
-
-
-                    </x-dropdownItem>
-
-            </x-dropdown>
-
+        <x-CategoryDropdownComponent/>
         </div>
 
 
