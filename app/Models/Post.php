@@ -45,13 +45,19 @@ class Post extends Model
 //        );
 
 
-
         $query->when($filters['category'] ?? false,
             function ($query,$category){
             $query->withwhereHas('category',fn($query)=>
             $query-> where('categories.slug',$category)
             );
         });
+
+        $query->when($filters['user'] ?? false,
+            function ($query,$user){
+                $query->withwhereHas('user',fn($query)=>
+                $query-> where('users.name',$user)
+                );
+            });
 
 
 
