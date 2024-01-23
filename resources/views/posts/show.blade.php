@@ -13,7 +13,9 @@
                     <div class="flex items-center lg:justify-center text-sm mt-4">
                         <img src={{asset('/images/lary-avatar.svg')}} >
                         <div class="ml-3 text-left">
-                            <h5 class="font-bold">{{$posts->user->name}}</h5>
+                            <a href="/?user={{$posts->user->name}}">
+                                <h5 class="font-bold">{{$posts->user->name}}</h5>
+                            </a>
                         </div>
                     </div>
                 </div>
