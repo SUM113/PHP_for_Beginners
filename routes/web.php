@@ -21,17 +21,17 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[PostController::class,'index'])->name('home');
 
 
-Route::get("/posts/{post:slug}",[PostController::class,'show']);
+Route::get("/posts/{post:slug}",[PostController::class,'show'])->name('post');
 
-Route::get('category/{category:slug}',function (Category $category){
-    return view('posts',
-        [
-            'posts'=>$category->post,
-            'category_selected'=>$category,
-            'categories'=> Category::all()
-
-    ]);
-})->name('category');
+//Route::get('category/{category:slug}',function (Category $category){
+//    return view('posts',
+//        [
+//            'posts'=>$category->post,
+//            'category_selected'=>$category,
+//            'categories'=> Category::all()
+//
+//    ]);
+//})->name('category');
 
 Route::get('/postsBy/{user}',function (User $user){
 //    dd('user_id ::'.$user_id);
