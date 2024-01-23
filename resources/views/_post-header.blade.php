@@ -20,10 +20,10 @@
 
                     </button>
                 </x-slot>
-{{--                {{dd(request()->routeIs('home') ?? false)}}--}}
-                <x-dropdownItem href="/" active=" request()->routeIs('home')??false">All</x-dropdownItem>
+
+                <x-dropdownItem href="/" :actve=" request()->routeIs('home')">All</x-dropdownItem>
                 @foreach($categories as $category)
-                    <x-dropdownItem href="/?category={{$category->slug}}"
+                    <x-dropdownItem href="/category/{{$category->slug}}"
                                     :active="isset($category_selected) && $category_selected->is($category)"
                     >{{$category->name. "\n"}}
                     </x-dropdownItem>
