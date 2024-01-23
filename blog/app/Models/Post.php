@@ -34,6 +34,10 @@ class Post extends Model
             $query-> where('title','like','%'.$filters['search'].'%')
             -> orwhere('body','like','%'.$filters['search'].'%');
         }
+        if(($filters['category'] ?? false)){
+            $query-> where('title','like','%'.$filters['category'].'%')
+            -> orwhere('body','like','%'.$filters['category'].'%');
+        }
     }
 
 
