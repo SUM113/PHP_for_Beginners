@@ -6,7 +6,7 @@
     <div class="py-6 px-5 lg:flex">
         <div class="flex-1 lg:mr-8">
 
-            <img src={{asset('/images/illustration-1.png')}}  class="rounded-xl">
+            <img src={{asset('/images/illustration-1.png')}}  class="rounded-xl" alt="illustration-1.png">
         </div>
 
         <div class="flex-1 flex flex-col justify-between">
@@ -41,10 +41,11 @@
 
             <footer class="flex justify-between items-center mt-8">
                 <div class="flex items-center text-sm">
-                    <img src={{asset('/images/lary-avatar.svg')}}  >
+                    <img src={{asset('/images/lary-avatar.svg')}},   alt="lary-avatar.svg">
                     <div class="ml-3">
-                        <h5 class="font-bold">{{$post->user->name}}</h5>
-                        <h6>Mascot at Laracasts</h6>
+                        <a href="/postsBy/{{$post->user->id}}">
+                            <h5 class="font-bold">{{$post->user->name}}</h5>
+                        </a>
                     </div>
                 </div>
 

@@ -45,12 +45,14 @@ class Post extends Model
 //        );
 
 
+
         $query->when($filters['category'] ?? false,
             function ($query,$category){
             $query->withwhereHas('category',fn($query)=>
             $query-> where('categories.slug',$category)
             );
         });
+
 
 
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\User;
 
 class PostController extends Controller
 {
@@ -12,13 +13,11 @@ class PostController extends Controller
 //    dd(request('search'));
 
         return view('posts.index',[
-            'posts'=>Post::latest()->filter(request(['search','category']))->get(),
+            'posts'=>Post::latest()->filter(request(['search','category','user']))->get(),
 
         ]);
 
     }
-
-
 
     public function show(Post $post): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
@@ -26,5 +25,11 @@ class PostController extends Controller
             'posts'=>$post,
         ]);
 
+    }
+
+    public function PostByAuthor(User $user){
+        return view('posts.index',[
+            'posts'=>$user->post,
+        ]);
     }
 }

@@ -1,8 +1,6 @@
 <?php
 
 use App\Http\Controllers\PostController;
-use App\Models\Category;
-use App\Models\Post;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
@@ -24,9 +22,4 @@ Route::get('/',[PostController::class,'index'])->name('home');
 Route::get("/posts/{post:slug}",[PostController::class,'show'])->name('posts');
 
 
-Route::get('/postsBy/{user}',function (User $user){
-//    dd('user_id ::'.$user_id);
-    return view('posts.index',[
-        'posts'=>$user->post,
-    ]);
-});
+Route::get('/postsBy/{user}',[PostController::class,'PostByAuthor']);
