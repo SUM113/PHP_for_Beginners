@@ -13,7 +13,6 @@ class PostController extends Controller
 
         return view('posts',[
             'posts'=>Post::latest()->filter(request(['search']))->get(),
-            'categories'=> Category::all()
         ]);
 
     }
@@ -24,7 +23,6 @@ class PostController extends Controller
     {
         return view("post",[
             'posts'=>$post,
-            'categories'=> Category::all()
         ]);
 
     }
