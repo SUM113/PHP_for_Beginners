@@ -30,27 +30,20 @@ class Post extends Model
     public function scopeFilter($query,array $filters)
     {
 //        dd($filters);
-        $query-> when(($filters['search'] ?? false),fn($query, $filter) =>
+        $s=$query-> when(($filters['search'] ?? false),fn($query, $filter) =>
             $query->where('title', 'like', '%' . $filters['search'] . '%')
             ->orwhere('body', 'like', '%' . $filters['search'] . '%')
 
     );
 
-//        $query->when($filters['category'] ?? false, fn($query,$category) =>
-//            $query->whereExits(fn($query)=>
-//                $query->from('categories')
-//                ->whereColumn('categories.id','posts.category_id')
-//                -> where('category.slug',$category)
-//            )
-//        );
 
-
-        $query->when($filters['category'] ?? false,
+       $c= $query->when($filters['category'] ?? false,
             function ($query,$category){
             $query->withwhereHas('category',fn($query)=>
             $query-> where('categories.slug',$category)
             );
         });
+
 
         $query->when($filters['user'] ?? false,
             function ($query,$user){
@@ -58,9 +51,6 @@ class Post extends Model
                 $query-> where('users.name',$user)
                 );
             });
-
-
-
 
     }
 
