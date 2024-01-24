@@ -9,6 +9,7 @@
         @else
             <p class="text-center">No post For Now, comeback Later.</p>
         @endif
+        {{$posts->links()}}
 
 
     </main>
