@@ -13,7 +13,8 @@ class PostController extends Controller
 //    dd(request('search'));
 
         return view('posts.index',[
-            'posts'=>Post::latest()->filter(request(['search','category','user']))->paginate(5),
+//            'posts'=>Post::latest()->filter(request(['search','category','user']))->paginate(5),// This is regular pagination with no links to the next page it willl wipeout all the filter if applied to the page.
+            'posts'=>Post::latest()->filter(request(['search','category','user']))->paginate(5)->withQueryString(),// This is regular pagination with all the query string information to the next page.
 
         ]);
 
