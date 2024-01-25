@@ -31,11 +31,5 @@ class RegisterController extends Controller
 
     }
 
-    public function logout()
-    {
-        session()->regenerate(true);
-        session_unset();
-        redirect(request()->routeIs('home'));
 
-    }
 }

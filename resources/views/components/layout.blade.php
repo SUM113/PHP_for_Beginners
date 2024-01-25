@@ -16,21 +16,21 @@
             </a>
         </div>
 
-        <div class="mt-8 md:mt-0">
+        <div class="mt-8 md:mt-0 flex">
             @auth()
-                <a href="/" class="text-xs font-bold uppercase">Welcome {{auth()->user()->name}}</a>
+                <a href="/" class="ml-3 rounded-full text-xs font-bold uppercase py-3 px-5">Welcome {{auth()->user()->name}}</a>
                 <form method="post" action="/logout">
-                    <button type="submit">LOGOUT</button>
+                   @csrf
+                    <button type="submit" class="bg-blue-500 ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-5">LOGOUT</button>
                 </form>
             @else
-                <a href="/register" class="text-xs font-bold uppercase">Register</a>
+                <a href="/register" class="ml-3 rounded-full text-xs font-bold uppercase py-3 px-5">Register</a>
 
+                <a href="/login" class="bg-blue-500 ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-5">
+                    LOGIN
+                </a>
             @endauth
 
-
-            <a href="#" class="bg-blue-500 ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-5">
-                Subscribe for Updates
-            </a>
         </div>
     </nav>
     {{$slot}}
