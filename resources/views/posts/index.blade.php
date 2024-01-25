@@ -11,7 +11,6 @@
         @endif
         {{$posts->links()}}
 
-
     </main>
 
 
