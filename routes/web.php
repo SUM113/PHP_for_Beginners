@@ -21,5 +21,7 @@ Route::get('/',[PostController::class,'index'])->name('home');
 Route::get("/posts/{post:slug}",[PostController::class,'show'])->name('posts');
 Route::get('/postsBy/{user}',[PostController::class,'PostByAuthor']);
 
-Route::get('/register',[RegisterController ::class,'create']);
-Route::post('/register',[RegisterController ::class,'store']);
+Route::get('/register',[RegisterController ::class,'create'])->name('register')->middleware('guest');
+Route::post('/register',[RegisterController ::class,'store'])->middleware('guest');
+
+Route::post('logout',[RegisterController::class,'logout'])->middleware('auth')->name('logout');
