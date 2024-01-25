@@ -24,6 +24,5 @@
                     class="bg-transparent placeholder-black font-semibold text-sm">
             </form>
         </div>
-
     </div>
 </header>

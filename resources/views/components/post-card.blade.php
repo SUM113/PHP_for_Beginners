@@ -33,9 +33,7 @@
 <p>
                   {{$post->body}}
                 </p>
-
             </div>
-
             <footer class="flex justify-between items-center mt-8">
                 <div class="flex items-center text-sm">
                     <img src={{asset("images/lary-avatar.svg")}}>
