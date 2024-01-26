@@ -31,6 +31,6 @@ class SessionController extends Controller
         if(!auth()->attempt($userdata))
             return back()->withErrors(['email'=>'Credential could not be verified.'])->withInput();
         else
-            return redirect(request()->routeIs('home'))->with('success','Welcome Back');
+            return redirect()->back()->with('success','Welcome Back');
     }
 }

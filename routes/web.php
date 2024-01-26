@@ -23,7 +23,7 @@ Route::get('/',[PostController::class,'index'])->name('home');
 Route::get("/posts/{post:slug}",[PostController::class,'show'])->name('posts');
 Route::get('/postsBy/{user}',[PostController::class,'PostByAuthor']);
 
-Route::post('/postsComment/{post:id}',[PostCommentController::class,'store']);
+Route::get('/postsComment/{post:id}',[PostCommentController::class,'store']);
 
 
 Route::get('/register',[RegisterController ::class,'create'])->middleware('guest')->name('register');

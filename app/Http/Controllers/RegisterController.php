@@ -27,7 +27,7 @@ class RegisterController extends Controller
         auth()->login($legit_user);
 
 //        session()->flash('success','You are successfully Registered');
-        return redirect('/')->with('success','You are successfully Registered'); // This is eqaul to adding the above line [short form of flash messages]
+        return redirect()->back()->with('success','You are successfully Registered'); // This is eqaul to adding the above line [short form of flash messages]
 
     }
 
