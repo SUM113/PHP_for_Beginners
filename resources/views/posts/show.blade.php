@@ -7,7 +7,8 @@
                     <img src={{asset('/images/illustration-1.png')}} alt="" class="rounded-xl">
 
                     <p class="mt-4 block text-gray-400 text-xs">
-                        Published <time>{{$posts->created_at->diffForHumans()}}</time>
+                        Published
+                        <time>{{$posts->created_at->diffForHumans()}}</time>
                     </p>
 
                     <div class="flex items-center lg:justify-center text-sm mt-4">
@@ -44,7 +45,8 @@
                     </div>
 
                     <h1 class="font-bold text-3xl lg:text-4xl mb-10">
-                       {{$posts->title}}
+
+                        {{$posts->title}}
                     </h1>
 
                     <div class="space-y-4 lg:text-lg leading-loose">
@@ -53,10 +55,19 @@
                 </div>
 
                 <section class="col-span-8 col-start-5 mt-10 space-y-6">
-                    <x-post-comment />
-                    <x-post-comment />
-                    <x-post-comment />
-                    <x-post-comment />
+
+                @if(count($posts->comments)>0)
+                    @foreach($posts->comments as $comment)
+                        <x-post-comment :comment="$comment"/>
+                    @endforeach
+
+                    @else
+                    <p>
+                        Not Comments for this Post yet!!!!
+                    </p>
+                    @endif
+
+
                 </section>
             </article>
 
@@ -66,29 +77,26 @@
     </section>
 
 
-
-
-
     {{--    <h1>--}}
-{{--        {!! $posts->title !!}--}}
-{{--    </h1>--}}
-{{--    <div>--}}
-{{--        From--}}
-{{--        <a href="/postsBy/{{$posts->user->name}}">{{$posts->user->name}} </a>--}}
-{{--        in--}}
-{{--        <a href="/category/{{$posts->category->slug}}">--}}
-{{--            <strong>{{$posts->category->name}}</strong>--}}
-{{--        </a>--}}
-{{--        <hr>--}}
-{{--    </div>--}}
+    {{--        {!! $posts->title !!}--}}
+    {{--    </h1>--}}
+    {{--    <div>--}}
+    {{--        From--}}
+    {{--        <a href="/postsBy/{{$posts->user->name}}">{{$posts->user->name}} </a>--}}
+    {{--        in--}}
+    {{--        <a href="/category/{{$posts->category->slug}}">--}}
+    {{--            <strong>{{$posts->category->name}}</strong>--}}
+    {{--        </a>--}}
+    {{--        <hr>--}}
+    {{--    </div>--}}
 
-{{--    <article>--}}
-{{--        {!!$posts->body!!}--}}
-{{--    </article>--}}
+    {{--    <article>--}}
+    {{--        {!!$posts->body!!}--}}
+    {{--    </article>--}}
 
-{{--    <div>--}}
-{{--        <a href="/">Go Back</a>--}}
-{{--    </div>--}}
+    {{--    <div>--}}
+    {{--        <a href="/">Go Back</a>--}}
+    {{--    </div>--}}
 
 
 </x-layout>
