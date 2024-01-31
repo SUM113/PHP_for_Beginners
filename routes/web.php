@@ -26,10 +26,6 @@ Route::get("/posts/{post:slug}",[PostController::class,'show'])->name('posts');
 Route::get('/postsBy/{user}',[PostController::class,'PostByAuthor']);
 
 
-Route::get('/WritePosts/create',[PostController::class,'create'])->middleware('admin');
-Route::post('/WritePosts/store',[PostController::class,'store'])->middleware('admin');
-
-
 
 Route::get('/postsComment/{post:id}',[PostCommentController::class,'store']);
 
@@ -42,7 +38,11 @@ Route::post('/session',[SessionController::class,'session'])->middleware('guest'
 
 Route::get('newsletter/subscribe',[NewsLetterController::class,'Subscribe']);
 
-Route::get("/admin/dashboard", [AdminPostController::class,'show'])->middleware('admin  ');
+
+Route::get('/admin/post/create',[AdminPostController::class,'create'])->middleware('admin');
+Route::post('/admin/post/store',[AdminPostController::class,'store'])->middleware('admin');
+
+Route::get("/admin/dashboard", [AdminPostController::class,'show'])->middleware('admin')->name('dashboard');
 Route::get("/admin/delete/record/{post:id}", [AdminPostController::class,'destroy'])->middleware('admin ');
 Route::get("/admin/edit/{post:id}", [AdminPostController::class,'edit'])->middleware('admin ');
 

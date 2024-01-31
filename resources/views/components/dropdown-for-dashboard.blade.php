@@ -19,7 +19,7 @@
                 </li>
 
                 <li>
-                    <a href="/WritePosts/create" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Create Blog Post</a>
+                    <a href="/admin/post/create" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Create Blog Post</a>
                 </li>
                 @endif
             <li>

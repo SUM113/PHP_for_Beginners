@@ -1,5 +1,5 @@
 <x-layout>
-    <section>
+    <section >
 
         <div class="mt-10 p-6 px-0 border-solid border-4 border-gray-200 rounded-xl">
             <table class=" w-full min-w-max table-auto text-left">
@@ -36,7 +36,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($posts as $post)
+                @foreach($posts->reverse() as $post)
                     <tr class="hover:bg-gray-100">
                         <td class="p-4 border-b border-blue-gray-50">
                             <div class="flex items-center gap-3">

@@ -22,17 +22,18 @@ class AdminPostController extends Controller
                 'category_id'=> request('category_id'),
             ]);
 
-            Return redirect()->back()->with('success','Blog Published successfully');
+
+            Return redirect()->to('/admin/dashboard')->with('success','Blog Published successfully');
         }catch(\Exception $e){
             throw ValidationException::withMessages(['submit'=>'Error Encountered while creating Blog Post.']);
-            Return redirect(request()->routeIs('home'))->with('success','Request Unsuccessful.. Try Again');
+            Return redirect()->back()->with('success','Request Unsuccessful.. Try Again');
 
         }
 
     }
 
     public function create(){
-        return view('posts.post-form');
+        return view('admin.post-form');
     }
 
     public function show(Post $post){

@@ -4,7 +4,7 @@
         <main class="max-w-lg mx-auto mt-10 bg-gray-100 border border-gray-200 p-6 rounded-xl">
             <h1 class="text-center font-bold text-xl">Creat A Blog Post!</h1>
 
-            <form method="post" action="/WritePosts/store" enctype="multipart/form-data">
+            <form method="post" action="/admin/post/store" enctype="multipart/form-data">
                 @csrf
 
                 <div class="mb-6">
