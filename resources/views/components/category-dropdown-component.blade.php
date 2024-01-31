@@ -2,9 +2,9 @@
 
 
     <x-slot name="trigger">
+
         <button @click= "show = !show"  class="py-2 pl-3 pr-9 text-sm font-semibold w-32 text-left inline-flex">
             {{isset($category_selected) ? ucwords($category_selected->name) : 'Categories'}}
-
             <x-icon name="downArrow" class="absolute pointer-events-none text-bold"/>
 
         </button>

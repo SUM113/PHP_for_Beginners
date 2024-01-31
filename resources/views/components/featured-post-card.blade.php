@@ -6,7 +6,7 @@
     <div class="py-6 px-5 lg:flex">
         <div class="flex-1 lg:mr-8">
 
-            <img src={{asset('/images/illustration-1.png')}}  class="rounded-xl">
+            <img src={{ Storage::url($post->thumbnail) }}  class="rounded-xl">
         </div>
 
         <div class="flex-1 flex flex-col justify-between">

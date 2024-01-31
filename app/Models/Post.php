@@ -11,7 +11,7 @@ class Post extends Model
 //    protected $table = 'posts';
 //    public $primaryKey  = 'id';
 
-    protected $fillable=['category_id','slug','title','excerpt','body'];
+    protected $fillable=['category_id','user_id','thumbnail','slug','title','excerpt','body'];
 
 
     use HasFactory;
@@ -24,7 +24,6 @@ class Post extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
-
     }
 
     public function scopeFilter($query,array $filters)
@@ -35,7 +34,6 @@ class Post extends Model
             ->orwhere('body', 'like', '%' . $filters['search'] . '%')
 
     );
-
 
        $query->when($filters['category'] ?? false,
             function ($query,$category){

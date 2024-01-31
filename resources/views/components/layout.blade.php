@@ -23,15 +23,17 @@
             <a href="/">
                 <img src={{asset('/images/logo.svg')}} alt="Laracasts Logo" width="165" height="16">
             </a>
+
         </div>
 
         <div class="mt-8 md:mt-0 flex">
+
+
+
             @auth()
-                <a href="/" class="ml-3 rounded-full text-xs font-bold uppercase py-3 px-5">Welcome {{auth()->user()->name}}</a>
-                <form method="post" action="/logout">
-                   @csrf
-                    <button type="submit" class="bg-blue-500 ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-5">LOGOUT</button>
-                </form>
+                <div class="md:flex md:justify-between md:items-center">
+                    <x-dropdown-for-dashboard/>
+                </div>
             @else
                 <a href="/register" class="ml-3 rounded-full text-xs font-bold uppercase py-3 px-5">Register</a>
 
@@ -46,6 +48,7 @@
         </div>
     </nav>
     {{$slot}}
+
 
     <footer class="bg-gray-100 border border-black border-opacity-5 rounded-xl text-center py-16 px-10 mt-16">
         <img src="./images/lary-newsletter-icon.svg" alt="" class="mx-auto -mb-6" style="width: 145px;">

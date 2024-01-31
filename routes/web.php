@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminPostController;
 use App\Http\Controllers\NewsLetterController;
 use App\Http\Controllers\PostCommentController;
 use App\Http\Controllers\PostController;
@@ -24,14 +25,32 @@ Route::get('/',[PostController::class,'index'])->name('home');
 Route::get("/posts/{post:slug}",[PostController::class,'show'])->name('posts');
 Route::get('/postsBy/{user}',[PostController::class,'PostByAuthor']);
 
+
+Route::get('/WritePosts/create',[PostController::class,'create'])->middleware('admin');
+Route::post('/WritePosts/store',[PostController::class,'store'])->middleware('admin');
+
+
+
 Route::get('/postsComment/{post:id}',[PostCommentController::class,'store']);
 
 Route::get('/register',[RegisterController ::class,'create'])->middleware('guest')->name('register');
 Route::post('/register',[RegisterController ::class,'store'])->middleware('guest');
 
-Route::post('/logout',[SessionController::class,'destroy'])->middleware('auth')->name('logout');
+Route::get('/logout',[SessionController::class,'destroy'])->middleware('auth')->name('logout');
 Route::get('/login',[SessionController::class,'create'])->middleware('guest')->name('login');
 Route::post('/session',[SessionController::class,'session'])->middleware('guest');
 
 Route::get('newsletter/subscribe',[NewsLetterController::class,'Subscribe']);
+
+Route::get("/admin/dashboard", [AdminPostController::class,'show'])->middleware('admin  ');
+Route::get("/admin/delete/record/{post:id}", [AdminPostController::class,'destroy'])->middleware('admin ');
+Route::get("/admin/edit/{post:id}", [AdminPostController::class,'edit'])->middleware('admin ');
+
+Route::patch("/admin/update/{post}", [AdminPostController::class,'update'])->middleware('admin  ');
+
+// the Delete request should also be handled like path request a dedicated request type for that , valid when we are submiting through the form
+
+
+
+
 
